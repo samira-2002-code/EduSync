@@ -39,4 +39,16 @@ class_id INT NOT NULL,
 Foreign Key (class_id) REFERENCES classes(id)
 );
 
+CREATE Table enrollements(
+    id INT PRIMARY KEY  AUTO_INCREMENT,
+    enrolled_at DATE,
+    status ENUM('activ','done'),
+    student_id INT,
+    cours_id INT,
+    Foreign Key (student_id) REFERENCES students(id),
+    Foreign Key (cours_id) REFERENCES coursses(id),
+    UNIQUE(student_id,cours_id)
+
+);
+
  
