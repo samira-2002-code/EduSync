@@ -38,3 +38,45 @@ FROM students
 JOIN enrollements ON students.id = enrollements.student_id
 JOIN coursses ON coursses.id = enrollements.cours_id;
 
+
+SELECT 
+    students.student_number,
+    classes.name AS class_name,
+    coursses.tittle,
+    users.fristname AS teacher_name
+FROM students
+JOIN classes ON students.class_id = classes.id
+JOIN enrollements ON students.id = enrollements.student_id
+JOIN coursses ON coursses.id = enrollements.cours_id
+JOIN users ON coursses.user_id = users.id;
+
+
+SELECT 
+    coursses.tittle,
+    users.fristname
+FROM coursses
+JOIN users ON coursses.user_id = users.id;
+
+
+SELECT 
+    students.student_number,
+    classes.name
+FROM students
+JOIN classes ON students.class_id = classes.id;
+
+
+SELECT 
+    coursses.tittle,
+    COUNT(enrollements.student_id) AS total_students
+FROM coursses
+JOIN enrollements ON coursses.id = enrollements.cours_id
+GROUP BY coursses.tittle;
+
+
+SELECT 
+    students.student_number,
+    coursses.tittle,
+    enrollements.status
+FROM students
+JOIN enrollements ON students.id = enrollements.student_id
+JOIN coursses ON coursses.id = enrollements.cours_id;
