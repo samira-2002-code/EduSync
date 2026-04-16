@@ -14,6 +14,12 @@ CREATE TABLE users(
     role_id INT NOT NULL,
     FOREIGN KEY (role_id) REFERENCES roles(id)
 );
+
+ALTER TABLE users
+ADD email VARCHAR(255) NOT NULL;
+
+
+
 CREATE Table classes(
     id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(100) NOT NULL,
