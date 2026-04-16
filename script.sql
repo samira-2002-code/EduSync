@@ -1,0 +1,7 @@
+-- Active: 1776333275695@@127.0.0.1@3306@school
+CREATE DATABASE school;
+USE school;
+CREATE Table users(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    label VARCHAR(55) UNIQUE NOT NULL
+);
